@@ -1,0 +1,15 @@
+- name: my ansible start
+  hosts: vagrant
+
+  tasks:
+  # Note: これ実行すると初回は時間がかかります
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+  - name: Install a list of packages
+    yum:
+      name:
+        - gcc
+        - git
+      state: installed
